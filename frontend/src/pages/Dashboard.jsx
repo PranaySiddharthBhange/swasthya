@@ -15,7 +15,8 @@ function Dashboard({ setProgress }) {
   useEffect(() => {
     setProgress(10);
     if (!user) {
-      navigate("/login");
+      // navigate("/login");
+      navigate("/home");
     } else {
       setProgress(40);
 

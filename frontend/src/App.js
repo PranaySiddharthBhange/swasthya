@@ -16,6 +16,10 @@ import UpdateCasepaper from "./pages/UpdateCasepaper";
 import CopyCasepaper from "./pages/CopyCasepaper";
 import React, { useState } from "react";
 import LoadingBar from "react-top-loading-bar";
+import Aboutus from "./pages/Aboutus";
+import Doctors from "./pages/Doctors";
+import Gallery from "./pages/Gallery";
+import Home from "./pages/Home";
 function App() {
   const [progress, setProgress] = useState(0);
 
@@ -59,6 +63,11 @@ function App() {
               path="/update/disease/:patientId/:diseaseId"
               element={<UpdateDisease setProgress={setProgress} />}
             />
+
+            <Route path="/aboutus" element={<Aboutus />} />
+            <Route path="/doctors" element={<Doctors />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/home" element={<Home />} />
 
             <Route
               path="new/:patientId/:diseaseId"

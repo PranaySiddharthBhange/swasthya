@@ -1,4 +1,3 @@
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
@@ -20,13 +19,23 @@ function Header() {
     <header className="flex p-4 items-center justify-between">
       <div className="flex items-center">
         {user ? (
-          <Link to="/" className="text-3xl font-semibold ml-3">
-            Dashboard
-          </Link>
+          <div>
+            <Link to="/" className="text-3xl font-semibold ml-3">
+              Dashboard
+            </Link>
+          </div>
         ) : (
-          <h1 className="text-3xl font-semibold ml-3">Swasthya</h1>
+          <div className="flex flex-row">
+            <h1 className="text-3xl font-semibold ml-3 ">
+              <Link to="/"> Swasthya</Link>
+            </h1>
+            <Link to="/aboutus">About Us</Link>
+            <Link to="/gallery">Gallery</Link>
+            <Link to="/doctors">Doctors</Link>
+          </div>
         )}
       </div>
+
       <ul className="flex space-x-4">
         {user ? (
           <li>

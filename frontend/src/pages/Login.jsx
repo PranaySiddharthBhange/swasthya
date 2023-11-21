@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
 import Spinner from "../components/Spinner";
-
 import { Button, Input } from "@nextui-org/react";
 
 function Login({ setProgress }) {
@@ -58,7 +57,7 @@ function Login({ setProgress }) {
   }
 
   return (
-    <div className="flex items-center justify-center h-screen m-10">
+    <div className="flex flex-row items-center justify-center h-screen m-10 ">
       <form
         style={{ marginLeft: "10px", padding: "40px" }}
         className="bg-white shadow-md rounded px-8 py-8 w-64"

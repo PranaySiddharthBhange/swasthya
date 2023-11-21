@@ -1,0 +1,46 @@
+/* AboutUs.css */
+
+.about-us {
+  padding: 20px;
+  text-align: center;
+  color: #0c5849;
+}
+
+.about-header {
+  background-color: #4caf50; /* Change the background color to green (you can use your preferred color) */
+  color: #9b7676;
+  padding: 20px;
+  font-size: 24px;
+
+}
+.about-container {
+  background-color: #95bbb6;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(24, 23, 23, 0.1);
+  margin-top: 20px;
+  
+}
+
+.about-container h2 {
+  font-size: 20px;
+  margin-top: 10px;
+ 
+
+  
+}
+
+.about-container p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0c5c16;
+}  
+
+.about-image {
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.para{
+  color: #0c5849;
+}
