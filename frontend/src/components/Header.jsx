@@ -27,11 +27,19 @@ function Header() {
         ) : (
           <div className="flex flex-row">
             <h1 className="text-3xl font-semibold ml-3 ">
-              <Link to="/"> Swasthya</Link>
+              <Link to="/"> Swasthya </Link>
             </h1>
-            <Link to="/aboutus">About Us</Link>
-            <Link to="/gallery">Gallery</Link>
-            <Link to="/doctors">Doctors</Link>
+            <div className="mr-10">
+              <Link className="text-3xl font-semibold  " to="/aboutus">
+                About Us
+              </Link>
+              <Link className="text-3xl font-semibold ml-3 " to="/gallery">
+                Gallery
+              </Link>
+              <Link className="text-3xl font-semibold ml-3 " to="/doctors">
+                Doctors
+              </Link>
+            </div>
           </div>
         )}
       </div>

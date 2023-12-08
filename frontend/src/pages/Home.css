@@ -13,9 +13,13 @@
 }
 
 .hero {
-  background-color: #007BFF; /* Background color for the hero section */
+  background-color: rgb(
+    58,
+    171,
+    64
+  ); /* Background color for the hero section */
   color: #fff; /* Text color inside the hero section */
-  padding: 20px;
+  padding: 70px;
   border-radius: 5px;
 }
 

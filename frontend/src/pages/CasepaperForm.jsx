@@ -960,7 +960,7 @@ const CasepaperForm = () => {
           Create
         </Button>
       </div>
-      <pre className="mt-4">{JSON.stringify(formData, null, 2)}</pre>
+      {/* <pre className="mt-4">{JSON.stringify(formData, null, 2)}</pre> */}
     </div>
   );
 };

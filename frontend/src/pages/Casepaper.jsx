@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "@nextui-org/react";
-
+import "./print.css";
 function Casepaper({ setProgress }) {
   const navigate = useNavigate();
 
@@ -62,8 +62,13 @@ function Casepaper({ setProgress }) {
     }
   };
   return (
-    <div>
-      <div>
+    <div
+      className="printable" // Add this class to the main container
+      style={{
+        margin: "30px",
+      }}
+    >
+      {/* <div>
         {casepaper.problems && casepaper.problems.length > 0 ? (
           <div>
             <h1>Problems:</h1>
@@ -124,20 +129,120 @@ function Casepaper({ setProgress }) {
         ) : (
           <p>No problems available for this casepaper.</p>
         )}
-      </div>
+      </div> */}
+      <div>
+        {casepaper.problems && casepaper.problems.length > 0 ? (
+          <div>
+            <h1 style={{ color: "#333" }}>Problems:</h1>
+            <ul>
+              {casepaper.problems.map((problem, index) => (
+                <div
+                  key={index}
+                  style={{
+                    border: "1px solid #4CAF50",
+                    borderRadius: "8px",
+                    padding: "10px",
+                    margin: "10px 0",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    backgroundColor: "#ECF0F1",
+                  }}
+                >
+                  <b style={{ color: "#3498DB" }}>Problem {index + 1}:</b>
+                  <p>location: {problem.location}</p>
+                  <p>sensation: {problem.sensation}</p>
+                  <p>modality: {problem.modality}</p>
+                  <p>concomitant: {problem.concomitant}</p>
+                  <p>duration: {problem.duration}</p>
+                  <p>severity: {problem.severity}</p>
+                  <p>comment: {problem.comment}</p>
 
+                  <div>
+                    <ul>
+                      {problem.medications && problem.medications.length > 0 ? (
+                        problem.medications.map((medication, medIndex) => (
+                          <li
+                            key={medIndex}
+                            style={{
+                              border: "1px solid #3498DB",
+                              borderRadius: "6px",
+                              padding: "8px",
+                              margin: "8px 0",
+                              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                              backgroundColor: "#D6EAF8",
+                            }}
+                          >
+                            <b style={{ color: "#3498DB" }}>
+                              Problem {index + 1} Medication {medIndex + 1}
+                            </b>
+                            <p>Name: {medication.name}</p>
+                            <p>Dosage: {medication.dosage}</p>
+                            <p>description: {medication.description}</p>{" "}
+                            <p>quantity: {medication.quantity}</p>
+                          </li>
+                        ))
+                      ) : (
+                        <p>No medications available for this problem.</p>
+                      )}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <ul>
+                      {problem.tests && problem.tests.length > 0 ? (
+                        problem.tests.map((test, testIndex) => (
+                          <li
+                            key={testIndex}
+                            style={{
+                              border: "1px solid #E74C3C",
+                              borderRadius: "6px",
+                              padding: "8px",
+                              margin: "8px 0",
+                              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                              backgroundColor: "#FADBD8",
+                            }}
+                          >
+                            <b style={{ color: "#E74C3C" }}>
+                              Problem {index + 1} Test {testIndex + 1}
+                            </b>
+                            <p>Name: {test.name}</p>
+                            <p>Result: {test.result}</p>
+                            <p>Data: {test.data}</p>
+                          </li>
+                        ))
+                      ) : (
+                        <p>No tests available for this problem.</p>
+                      )}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p>No problems available for this casepaper.</p>
+        )}
+      </div>
       <Link to={`/update/${patientId}/${diseaseId}/${casepaperId}`}>
-        Update
+        <Button color="success">Update</Button>{" "}
       </Link>
       <Button color="danger" onClick={deleteCasepaper}>
         Delete
       </Button>
-      <Button color="secondary">Print</Button>
-
+      <Button color="secondary" onClick={() => window.print()}>
+        Print
+      </Button>{" "}
+      <h1>Create On {casepaper.createdAt}</h1>
       {casepaper.status && (
-        <div>
-          <h1>Create On {casepaper.createdAt}</h1>
-
+        <div
+          style={{
+            border: "1px solid #4CAF50",
+            borderRadius: "8px",
+            padding: "10px",
+            margin: "10px 0",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            backgroundColor: "#ECF0F1",
+          }}
+        >
           <h1 className="text-xl">Status</h1>
           <p>hunger : {casepaper.status.hunger}</p>
           <p>cravings : {casepaper.status.cravings}</p>
@@ -157,7 +262,16 @@ function Casepaper({ setProgress }) {
         </div>
       )}
       {casepaper.appearence && (
-        <div>
+        <div
+          style={{
+            border: "1px solid #4CAF50",
+            borderRadius: "8px",
+            padding: "10px",
+            margin: "10px 0",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            backgroundColor: "#ECF0F1",
+          }}
+        >
           <h1 className="text-xl">appearence</h1>
           <p>height : {casepaper.appearence.height}</p>
           <p>weight : {casepaper.appearence.weight}</p>
@@ -167,7 +281,16 @@ function Casepaper({ setProgress }) {
         </div>
       )}
       {casepaper.mensuration && (
-        <div>
+        <div
+          style={{
+            border: "1px solid #4CAF50",
+            borderRadius: "8px",
+            padding: "10px",
+            margin: "10px 0",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            backgroundColor: "#ECF0F1",
+          }}
+        >
           <h1 className="text-xl">mensuration</h1>
           <p>regularity : {casepaper.mensuration.regularity}</p>
           <p>duration : {casepaper.mensuration.duration}</p>
@@ -182,7 +305,16 @@ function Casepaper({ setProgress }) {
         </div>
       )}
       {casepaper.pregnancy && (
-        <div>
+        <div
+          style={{
+            border: "1px solid #4CAF50",
+            borderRadius: "8px",
+            padding: "10px",
+            margin: "10px 0",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            backgroundColor: "#ECF0F1",
+          }}
+        >
           <h1 className="text-xl">pregnancy</h1>
           <p>status : {casepaper.pregnancy.status}</p>
           <p>gestationalAge : {casepaper.pregnancy.gestationalAge}</p>

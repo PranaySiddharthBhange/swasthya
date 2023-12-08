@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { Button } from "@nextui-org/react";
 
 function AllCasepapers({ setProgress }) {
   const copy = "copy";
@@ -54,10 +55,61 @@ function AllCasepapers({ setProgress }) {
     fetchData();
   }, []);
   return (
-    <div>
-      <h2 className="text-large">{diseaseName}</h2>
+    // <div>
+    //   <h2 className="text-large">{diseaseName}</h2>
 
-      <Link to={`/new/${patientId}/${diseaseId}`}>Add Casepaper</Link>
+    //   <Link to={`/new/${patientId}/${diseaseId}`}>Add Casepaper</Link>
+    //   <div></div>
+    //   {casepapers.length > 0 && (
+    //     <div>
+    //       <Link to={`/copy/${patientId}/${diseaseId}/${lastCasepaperId}`}>
+    //         Copy Last Casepaper
+    //       </Link>
+    //     </div>
+    //   )}
+
+    //   {Array.isArray(casepapers) ? (
+    //     casepapers
+    //       .slice()
+    //       .reverse()
+    //       .map((casepaper, index) => (
+    //         <li key={index}>
+    //           <Link to={`/${patientId}/${diseaseId}/${casepaper._id}`}>
+    //             {formatDistanceToNow(new Date(casepaper.createdAt), {
+    //               addSuffix: true,
+    //             })}
+    //           </Link>
+    //         </li>
+    //       ))
+    //   ) : (
+    //     <p>casepapers is not an array or is empty.</p>
+    //   )}
+    // </div>
+    <div>
+      <h2
+        className="text-large align-middle"
+        style={{
+          fontSize: "24px",
+          margin: "20px", // Add margin
+          padding: "10px", // Add padding
+          textAlign: "center", // Align center
+        }}
+      >
+        {diseaseName}
+      </h2>
+
+      <div style={{ margin: "24px" }}>
+        <Link to={`/new/${patientId}/${diseaseId}`}>
+          <Button color="warning">Add Casepaper</Button>
+        </Link>
+        {casepapers.length > 0 && (
+          <Link to={`/copy/${patientId}/${diseaseId}/${lastCasepaperId}`}>
+            <Button color="warning">Copy Last Casepaper</Button>
+          </Link>
+        )}
+      </div>
+
+      {/* <Link to={`/new/${patientId}/${diseaseId}`}>Add Casepaper</Link>
       <div></div>
       {casepapers.length > 0 && (
         <div>
@@ -65,20 +117,29 @@ function AllCasepapers({ setProgress }) {
             Copy Last Casepaper
           </Link>
         </div>
-      )}
+      )} */}
 
       {Array.isArray(casepapers) ? (
         casepapers
           .slice()
           .reverse()
           .map((casepaper, index) => (
-            <li key={index}>
+            <div
+              key={index}
+              style={{
+                border: "1px solid #ccc",
+                borderRadius: "8px",
+                padding: "10px",
+                marginBottom: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              }}
+            >
               <Link to={`/${patientId}/${diseaseId}/${casepaper._id}`}>
                 {formatDistanceToNow(new Date(casepaper.createdAt), {
                   addSuffix: true,
                 })}
               </Link>
-            </li>
+            </div>
           ))
       ) : (
         <p>casepapers is not an array or is empty.</p>

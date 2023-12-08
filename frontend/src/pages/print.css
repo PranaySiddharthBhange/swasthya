@@ -1,0 +1,11 @@
+@media print {
+  .printable {
+    visibility: visible;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    background: none;
+  }
+}
