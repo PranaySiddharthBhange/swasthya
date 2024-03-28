@@ -10,6 +10,7 @@ const goalRoutes = require("./routes/goalRoutes");
 const patientRoutes = require("./routes/patientRoutes");
 const diseaseRoutes = require("./routes/diseaseRoutes");
 const casepaperRoutes = require("./routes/casepaperRoutes");
+const appointmentRoutes = require("./routes/appointmentRoutes")
 
 connectDB();
 
@@ -29,6 +30,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/patients", patientRoutes);
 app.use("/api/diseases", diseaseRoutes);
 app.use("/api/casepapers", casepaperRoutes);
+app.use("/api/appointment", appointmentRoutes);
 
 // Serve frontend
 if (process.env.NODE_ENV === "production") {
